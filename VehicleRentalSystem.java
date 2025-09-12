@@ -26,12 +26,11 @@ class Rental {
         this.startTime = startTime;
         this.endTime = endTime;
 
-        // ✅ Validate time order
         if (endTime.isBefore(startTime)) {
             throw new IllegalArgumentException("End time cannot be before start time.");
         }
 
-        // ✅ Calculate total hours (round up any fraction to the next hour)
+    
         long minutes = Duration.between(startTime, endTime).toMinutes();
         long hours = (long) Math.ceil(minutes / 60.0);
 
@@ -92,3 +91,4 @@ public class VehicleRentalSystem {
         }
     }
 }
+
